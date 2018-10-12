@@ -69,7 +69,7 @@ function chatbotResponse() {
 		response_body = JSON.parse(result.data.body)
         botMessage = response_body.messages[0].unstructured.text;
 		//add the chatbot's name and message to the array messages
-		messages.push("<b>" + botName + ":</b> " + botMessage);
+		messages.push("<p><b>" + botName + ":</b> " + botMessage + "</p>");
 		// says the message using the text to speech function written below
 		Speech(botMessage);
 		//outputs the last few array elements of messages to html
@@ -93,7 +93,7 @@ function newEntry() {
 	//sets the chat box to be clear
 	document.getElementById("chatbox").value = "";
 	//adds the value of the chatbox to the array messages
-	messages.push(lastUserMessage);
+	messages.push('<p style="text-align:right;"><b>You:</b> ' + lastUserMessage + "</p>");
 	//Speech(lastUserMessage);  //says what the user typed outloud
 	//sets the variable botMessage in response to lastUserMessage
 	chatbotResponse();
