@@ -1,5 +1,6 @@
 body {
-  font: 15px arial, sans-serif;
+  font: 15px; /*arial, sans-serif;*/
+  font-family: "Comic Sans MS", cursive, sans-serif;
   background-color: #d9d9d9;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -36,11 +37,15 @@ body {
 }
 
 .chatlog {
-   font: 15px arial, sans-serif;
+   font: 15px;
+   font-family: "Comic Sans MS", cursive, sans-serif;
+   /* arial, sans-serif;*/
 }
 
 #chatbox {
-  font: 17px arial, sans-serif;
+  font: 17px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  /*arial, sans-serif;*/
   height: 22px;
   width: 100%;
 }
