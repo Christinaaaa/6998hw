@@ -86,7 +86,7 @@ function chatbotMessage(msg) {
 			{
 				type: "string",
 				unstructured: {
-					id: i.toString(),
+					id: "jh3870", //i.toString(),
 					text: msg,
 					timestamp: new Date().getTime().toString()
 				}

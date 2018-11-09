@@ -49,7 +49,7 @@ function chatbotResponse() {
 			{
 				type: "string",
 				unstructured: {
-					id: ((messages.length - 1) / 2).toString(),
+					id: "jh3870", //((messages.length - 1) / 2).toString(),
 					text: lastUserMessage,
 					timestamp: new Date().getTime().toString()
 				}
