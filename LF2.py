@@ -38,7 +38,7 @@ def lambda_handler(event, context):
     location = body['Location']
     
     # Initiate request to Google Places Text Search API
-    key = "AIzaSyAQkD44xBWVPQpENekU8hCGd93c8UprYZ0"
+    key = "YOUR_API_KEY"
     query = cuisine + " restaurant in " + location
     url = "https://maps.googleapis.com/maps/api/place/textsearch/json?" + urlencode({"key": key, "query": query})
     res = requests.get(url).json()
