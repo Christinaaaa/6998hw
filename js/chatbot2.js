@@ -54,9 +54,9 @@ function getCredentials(id_token){ // Use id_token to get access key, secret key
 	});
 	AWS.config.credentials.get(function(){
 		// Credentials will be available when this function is called.
-		var accessKeyId = AWS.config.credentials.accessKeyId;
-		var secretAccessKey = AWS.config.credentials.secretAccessKey;
-		var sessionToken = AWS.config.credentials.sessionToken;
+		accessKeyId = AWS.config.credentials.accessKeyId;
+		secretAccessKey = AWS.config.credentials.secretAccessKey;
+		sessionToken = AWS.config.credentials.sessionToken;
 		apigClient = apigClientFactory.newClient({ // Cannot use var here as that will create a local variable.
  			apiKey: 'C3CSrn3tGA6jEUwpRRbZ5Lb4Cj95ZVF3FvYaxKn4',
 			accessKey: accessKeyId,
@@ -143,7 +143,7 @@ function chatbotMessage(msg) {
 			{
 				type: "string",
 				unstructured: {
-					id: "jh3870", //i.toString(),
+					id: accessKeyId, //i.toString(),
 					text: msg,
 					timestamp: new Date().getTime().toString()
 				}
