@@ -1,2 +1,3 @@
 # 6998 cc hw
-http://6998chatbot2.s3-website.us-east-1.amazonaws.com/chatbot.html
+Chatbot: https://s3.amazonaws.com/6998chatbot2/chatbot.html
+Github: https://github.com/Christinaaaa/6998hw
