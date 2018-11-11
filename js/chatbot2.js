@@ -9,6 +9,63 @@ $(window).load(function() {
 	//}, 100);
 });
 
+// Note the following will not really work as it will redirect to chatbot.html
+$(document).ready(function(){
+	// Check whether we are signing in using code or id_token. Otherwise redirect to login page
+	if(window.location.href.indexOf("id_token") >= 0){ // Signed in using id_token: this is easier as we can get credentials using id_token directly
+		var urlParams = new URLSearchParams(window.location.href.split("#")[1]);
+		id_token = urlParams.get("id_token");
+		getCredentials(id_token);
+	}
+	else if(window.location.href.indexOf("code") >= 0){ // Signed in using code: we need to go to oauth2/token to exchange the code for the token
+		var urlParams = new URLSearchParams(window.location.search);
+		code = urlParams.get("code");
+		requestbody = "grant_type=authorization_code&client_id=1kg1oj7shsel6epnic6q5e2bnu&code=" + code + "&redirect_uri=https://s3.amazonaws.com/6998chatbot2/chatbot.html";
+		$.ajax({
+			url:"https://6998chatbot2.auth.us-east-1.amazoncognito.com/oauth2/token",
+			method:"POST",
+			header: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			},
+			data: requestbody,
+
+			success:function(data){
+				access_token = data['access_token'];
+				id_token = data['id_token'];
+				refresh_token = data['refresh_token'];
+				getCredentials(id_token);
+			}
+		});
+	}
+	else{ // Not signed in
+		window.location.href = "https://6998chatbot2.auth.us-east-1.amazoncognito.com/login?response_type=code&client_id=1kg1oj7shsel6epnic6q5e2bnu&redirect_uri=https://s3.amazonaws.com/6998chatbot2/chatbot.html";
+	}
+});
+
+function getCredentials(id_token){ // Use id_token to get access key, secret key and session token to generate apigClient
+	// Set up AWS Javascript SDK: set the region where your identity pool exists
+	AWS.config.region = 'us-east-1'; // Region
+	// Exchange the token for credentials, using CognitoIdentityCredentials (internally through AWS STS)
+	AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+		IdentityPoolId: 'us-east-1:a05063e7-aaea-4298-b774-4e3b668aa206',
+		Logins: {
+			'cognito-idp.us-east-1.amazonaws.com/us-east-1_G76Ad8Rcw': id_token
+		}
+	});
+	AWS.config.credentials.get(function(){
+		// Credentials will be available when this function is called.
+		var accessKeyId = AWS.config.credentials.accessKeyId;
+		var secretAccessKey = AWS.config.credentials.secretAccessKey;
+		var sessionToken = AWS.config.credentials.sessionToken;
+		apigClient = apigClientFactory.newClient({ // Cannot use var here as that will create a local variable.
+ 			apiKey: 'C3CSrn3tGA6jEUwpRRbZ5Lb4Cj95ZVF3FvYaxKn4',
+			accessKey: accessKeyId,
+			secretKey: secretAccessKey,
+			sessionToken: sessionToken
+		});
+	});
+}
+
 function updateScrollbar() {
 	$messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
 		scrollInertia: 10,
