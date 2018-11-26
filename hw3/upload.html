@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<title>Upload Photos</title>
+		
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+		
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("button").click(function(){
+					var f = document.querySelector('input[type=file]').files[0];
+					if (f){
+						//console.log(f.name);
+						//console.log(f.type);
+						console.log(f.size);
+						//console.log(f.lastModifiedDate ? f.lastModifiedDate.toLocaleDateString() : 'n/a');
+						
+						if (!f.type.match('image.*')) {
+							alert("Must be image");
+							return false;
+						}
+
+						// To come up with the following few lines I debugged for a whole day. I HATE FRONTEND!!!
+						// Originally I tried to read the file using FileReader.readAsBinaryString().
+						// However, if I use this binary string directly as payload, both apigClient and JQuery AJAX will somehow corrupt the data. (Have to encode in base64?)
+						// Thanks to XMLHttpRequest Level 2, the send method has been extended to enable easy transmission of HTML documents as well as binary data types such as ArrayBuffer, Blob, or File object (It also works with Typed Arrays).
+						// Reference: https://www.quora.com/How-do-I-upload-an-image-using-AJAX
+						var xhr = new XMLHttpRequest(); 
+						xhr.open("PUT", "https://qob0ixojn9.execute-api.us-east-1.amazonaws.com/Prod/upload?name=" + f.name);
+						xhr.setRequestHeader("Content-Type", f.type);
+						xhr.setRequestHeader("x-api-key", "AlPnc6R6Sx8YmpApmdb6w7fADIxlZyaq1Ikl7azo");
+						xhr.onload = function (event) { 
+							$("ul").append("<li>Uploaded: " + xhr.response + "</li>");
+						};
+						xhr.send(f);
+					}
+					else{
+						alert("No file chosen!");
+					}
+				});
+			});
+		</script>
+	</head>
+
+	<body>
+		<input type="file" id="file" name="files[]" /> <!-- Include multiple to select multiple files -->
+		<button type="button">Upload</button>
+		<ul></ul>
+	</body>
+</html>

@@ -1,5 +1,6 @@
 import json
 import time
+import boto3
 
 def lambda_handler(event, context):
     # TODO implement
@@ -21,11 +22,17 @@ def lambda_handler(event, context):
     try:
         message = event["messages"][0]
         unstructured = message["unstructured"]
-        if unstructured["text"] == "Hello":
-            response_text = "Hi there, how can I help?"
-        else:
-            response_text = "I'm not sure I understand."
-        response_unstructured = {"id": unstructured["id"], "text": response_text, "timestamp": str(int(time.time() * 1000))}
+        
+        client = boto3.client('lex-runtime')
+
+        lex_response = client.post_text(
+            botName='DiningConcierge',
+            botAlias='Prod',
+            userId=unstructured['id'],
+            inputText=unstructured['text']
+        )
+        
+        response_unstructured = {"id": unstructured["id"], "text": lex_response['message'], "timestamp": str(int(time.time() * 1000))}
         response_message = {"type": "string", "unstructured": response_unstructured}
         response = {"messages": []}
         response["messages"].append(response_message)
