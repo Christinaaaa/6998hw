@@ -32,6 +32,60 @@ def dining_suggestions(intent_request):
     #return queue_response
     return response
 
+# Validate 
+def validate(intent_request):
+    slots = intent_request['currentIntent']['slots']
+    location = intent_request['currentIntent']['slots']['Location']
+    cuisine = intent_request['currentIntent']['slots']['Cuisine']
+    dining_time = intent_request['currentIntent']['slots']['DiningTime']
+    number_of_people = intent_request['currentIntent']['slots']['NumberOfPeople']
+    phone_number = intent_request['currentIntent']['slots']['PhoneNumber']
+    
+    locations = ["New York", "Chicago", "San Francisco", "Los Angeles"]
+    cuisines = ["Chinese", "Indian", "Korean", "Fast food", "Halal", "Thai", "Formal", "Japanese"]
+    
+    if location and location not in locations:
+        response_content = "Location is not valid. Valid locations: " + str(locations)
+        slots["Location"] = None
+        response = {
+            "dialogAction": {
+                "type": "ElicitSlot",
+                "message": {
+                    "contentType": "PlainText",
+                    "content": response_content
+                },
+                "intentName": intent_request['currentIntent']['name'],
+                "slots": slots,
+                "slotToElicit" : "Location",
+            }
+        }
+        return response
+    elif cuisine and cuisine not in cuisines:
+        response_content = "Cuisine is not valid. Valid cuisines: " + str(cuisines)
+        slots["Cuisine"] = None
+        response = {
+            "dialogAction": {
+                "type": "ElicitSlot",
+                "message": {
+                    "contentType": "PlainText",
+                    "content": response_content
+                },
+                "intentName": intent_request['currentIntent']['name'],
+                "slots": slots,
+                "slotToElicit" : "Cuisine",
+            }
+        }
+        return response
+    else:
+        response = {
+            "dialogAction": {
+                "type": "Delegate",
+                "slots": slots
+            }
+        }
+        return response
+
+
 """ --- Intents --- """
 def dispatch(intent_request):
     """
@@ -40,10 +94,15 @@ def dispatch(intent_request):
     #logger.debug('dispatch userId={}, intentName={}'.format(intent_request['userId'], intent_request['currentIntent']['name']))
 
     intent_name = intent_request['currentIntent']['name']
+    # "invocationSource": "FulfillmentCodeHook or DialogCodeHook"
+    invocation_source = intent_request["invocationSource"]
 
     # Dispatch to your bot's intent handlers
     if intent_name == 'DiningSuggestionsIntent':
-        return dining_suggestions(intent_request)
+        if invocation_source == "FulfillmentCodeHook":
+            return dining_suggestions(intent_request)
+        elif invocation_source == "DialogCodeHook":
+            return validate(intent_request)
 
     raise Exception('Intent with name ' + intent_name + ' not supported')
 
