@@ -1,4 +1,6 @@
 # 6998 cc hw
+uni: jh3870, xg2278
+
 hw 1 & 2:
 Chatbot: https://s3.amazonaws.com/6998chatbot2/chatbot.html
 Github: https://github.com/Christinaaaa/6998hw
