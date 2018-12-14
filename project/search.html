@@ -1,0 +1,24 @@
+<script type="text/javascript">
+function search(){
+	var name = document.getElementById("foodName").value;
+	var xhr = new XMLHttpRequest(); 
+	xhr.open("GET", "https://api.edamam.com/api/food-database/parser?app_id=bf4ff7fa&app_key=da853382cc6d68d0b41251dc798835db&nutrition-type=logging&ingr=" + encodeURI(name));
+	xhr.onload = function (event) {
+		var parsed = JSON.parse(xhr.responseText).parsed;
+		if (parsed === undefined || parsed.length == 0) {
+			// No such food
+			alert("No such food!");
+		}
+		else{
+			nutrients = parsed[0].food.nutrients;
+			for (var nutrient in nutrients)
+				alert(nutrient + ": " + nutrients[nutrient]);
+		}
+	};
+	xhr.send();
+	
+}
+</script>
+
+<input type="text" id="foodName">
+<button type="button" onclick="search()">Search</button>
