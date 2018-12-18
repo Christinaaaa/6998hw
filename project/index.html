@@ -1,0 +1,2023 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Online Salad Bar</title>
+      <style>
+      /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+      /*
+
+Built for http://thecolour-green.com
+
+© 2013, Mohamed Moustafa. 
+http://mmoustafa.com
+
+*/
+
+@import url(https://fonts.googleapis.com/css?family=Waiting+for+the+Sunrise|Raleway:400,800);
+
+*,*:after,*:before {
+    margin: 0px;
+    padding: 0px;
+    font-family: STheiti, 'Raleway', 'Century Gothic', sans-serif;
+    color: #00AB3F;
+    font-weight: 400px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body {
+    font-size: 24px;
+ /* media query edit size */
+    width: 100%;
+}
+
+br {
+    line-height: 1em;
+}
+
+*::selection {
+    background-color: #BF3;
+    color: #FFF;
+}
+
+*::-moz-selection {
+    background-color: #BF3;
+    color: #FFF;
+}
+
+h1,h2,h3,h4,h5 {
+    padding: 0.4em 0 0.5em 0;
+    line-height: 1em;
+    font-weight: 400;  
+    font-family: STheiti, 'Raleway', 'Century Gothic', sans-serif;
+}
+
+h1 {
+    font-size: 4em;
+    padding-left: 0.25em;
+    letter-spacing: -0.05em;
+}
+
+h2 {
+    font-size: 3.2em;
+    padding-left: 0.3125em;
+}
+
+h3 {
+    font-size: 2.4em;
+    padding-left: 0.4167em;
+}
+
+h4 {
+    font-size: 1.6em;
+    padding-left: 0.625em;
+}
+
+h5 {
+    font-size: 1.4em;
+}
+
+p {
+    padding: 1em;
+    color: #999;
+    line-height: 1.2;
+}
+
+p img {
+    float: left;
+    margin: 0 10px 2px 0;
+    width: 5.8em;
+    border-radius: 5px;
+}
+
+body > div {
+    padding: 2em 1em 2em 1em;
+}
+
+.bold,strong {
+    font-weight: 800;
+}
+
+.center {
+    text-align: center;
+}
+
+.inline {
+    display: inline;
+}
+
+a {
+    text-decoration: none;
+    border-bottom: 1px dotted;
+}
+
+a:hover {
+    color: #BF3;
+}
+
+.grbg {
+    background: #00AB3F;
+    color: #FFF;
+}
+
+.grbg button, .grbg input[type="checkbox"]+label:after {
+    border: 1px #FFF solid;
+}
+
+.grbg h1, .grbg h2, .grbg h3, .grbg h4 {
+    color: #FFF;
+}
+
+button.lgbg:hover {
+    background: #CF6;
+}
+
+.whbg {
+    background: #FFF;
+}
+
+.wdbg {
+    background: url(http://thecolour-green.com/img/bg2.png) #ED9;
+    box-shadow: inset 0 0 10px rgba(20,20,20,0.7);
+}
+
+.wdbg p {
+    color: #666;
+}
+
+
+.trbg {
+    background: rgba(255,255,255,0.9);
+}
+
+.rdbg {
+    background: #F55;
+}
+
+button.rdbg:hover {
+    background: #F66;
+}
+
+.grco {
+    color: #00AB3F;
+}
+
+.lgco {
+    color: #BF3;
+}
+
+.gyco {
+    color: #999;
+}
+
+.dfw {
+    width: 100%;
+}
+
+hr {
+    border: 0;
+    outline: 0;
+    height: 1px;
+    background: #00AB3F;
+    box-shadow: 0 0 1px;
+    position: relative;
+    margin: 10px 0 10px 0;
+}
+/*hr:after{
+	content: '&';
+	text-shadow: 0 0 1px;
+	font-size: 14px;
+	padding:3px;
+	position:absolute;
+	top: -11px;
+	left:50%;
+	margin-left:-20px;
+	}*/
+	
+form {
+    padding: 1em;
+}
+
+form > h2, form > h3, form > h4 {
+    padding-left: 0;
+}
+
+button {
+    border: 0;
+    outline: 0;
+    background: #00AB3F;
+    font-family: 'Raleway', 'Century Gothic', sans-serif;
+    color: #FFF;
+    border-radius: 2px;
+    cursor: pointer;
+    margin: 10px 0;
+    -webkit-transition: all 0.2s ease;
+}
+
+button:hover {
+    background: #0C6;
+}
+
+button:active {
+    color: #00AB3F;
+}
+
+.big {
+    font-size: 2em;
+    padding: 20px 35px 20px 35px;
+}
+
+.medium {
+    font-size: 1.5em;
+    padding: 13px 25px 13px 25px;
+}
+
+.small {
+    font-size: 1em;
+    padding: 9px 17px 9px 17px;
+}
+
+input[type="text"],input[type="password"],input[type="email"],textarea {
+    margin: 0 0 0.5em 0;
+    border: 1px solid #00AB3F;
+    width: 100%;
+    font-size: 1.2em;
+    padding: 5px 5px 5px 10px;
+    border-radius: 2px;
+    font-weight: 800;
+}
+
+input[type="text"]:focus,input[type="password"]:focus,input[type="email"]:focus,textarea:focus {
+    outline: 0;
+    box-shadow: 0 0 3px;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+input[type="checkbox"],input[type="radio"] {
+    display: none;
+}
+
+input[type="checkbox"]+label,input[type="radio"]+label {
+    position: relative;
+    cursor: pointer;
+    top: 0.1em;
+    left: 0.2em;
+}
+
+input[type="checkbox"]+label:after,input[type="radio"]+label:after {
+    content: 'No';
+    font-size: 1em;
+    font-weight: bold;
+    display: block;
+    color: #FFF;
+    padding: 4px 5px 4px 5px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background: #00AB3F;
+    border-radius: 2px;
+    text-align: center;
+}
+
+input[type="checkbox"]:checked+label:after,input[type="radio"]:checked+label:after {
+    content: 'Yes';
+}
+
+input[type="checkbox"]:hover+label:after,input[type="radio"]:hover+label:after {
+    background: #0C6;
+}
+
+::-webkit-input-placeholder {
+    color: #AAA;
+}
+
+:-moz-placeholder {
+    color: #AAA;
+}
+
+.dbh {
+    line-height: 2em;
+}
+
+.trh {
+    line-height: 3em;
+}
+
+.preview-container {
+    width: 96%;
+    margin: auto;
+    list-style: none;
+    overflow: hidden;
+    -webkit-transition: all 0.2s ease-out;
+    -webkit-transform: translate3d(0,0,0);
+}
+
+.preview {
+    width: 270px;
+    padding: 10px;
+    margin: 10px;
+    float: left;
+    background: #FFF;
+    border-radius: 3px;
+    -moz-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+	/*-webkit-transition:all 0.2s ease;*/
+}
+
+.preview:hover {
+    box-shadow: 0 0 8px #00AB3F;
+}
+
+.preview:hover li {
+    margin: 10px auto;
+}
+
+.preview h4 {
+    margin: 10px;
+    padding: 0;
+    color: #999;
+}
+
+.preview button {
+    margin: 0;
+    display: none;
+}
+
+.preview:hover button {
+    display: block;
+}
+
+.preview img {
+    width: 100%;
+}
+
+.preview p {
+    padding: 0 0 10px 0;
+}
+
+.preview h5 {
+    padding: 10px 0;
+}
+
+.wall {
+    width: 96%;
+    margin: 20px auto;
+    padding: 20px 0;
+    list-style: none;
+    overflow: hidden;
+}
+
+.make-your-own {
+    background: #00AB3F;
+    color: #FFF;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 0.5em;
+    font-size: 2em;
+}
+
+.make-your-own:hover {
+    box-shadow: none !important;
+}
+
+.rotator {
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0.2;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.rotator img {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+#board {
+    width: 100%;
+    height: 700px;
+    z-index: 1;
+    margin-bottom: -5px;
+    cursor: none;
+}
+
+.board-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: rgba(100,100,100,1);
+    z-index: -2;
+    height: 1000px;
+    background: url(../img/bg1.png) #222;
+    cursor: none;
+}
+
+.chalk {
+    width: 40px;
+    height: 50px;
+    background: url(../img/chalk.png);
+    position: absolute;
+    padding: 0;
+    margin: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    cursor: none;
+}
+
+.egp {
+    font-weight: bold;
+}
+
+.egp:after {
+    content: ' EGP';
+    font-weight: 400 !important;
+    font-size: 0.7em;
+}
+
+.social {
+    text-align: center;
+}
+
+.fb {
+    background: #3B5998;
+    margin-bottom: 0;
+}
+
+.fb:hover {
+    background: #4B69A8;
+}
+
+.tw {
+    background: #4099FF;
+}
+
+.tw:hover {
+    background: #50A9FF;
+}
+
+.sticky-top {
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+    width: 100%;
+    background: #FFF;
+    padding-bottom: 0.4em;
+}
+
+.pinboard {
+    position: relative;
+    height: auto;
+    box-shadow: inset 0 20px 250px rgba(0,0,0,0.4), inset 0 3px 10px rgba(0,0,0,0.3);
+    padding: 0;
+    text-align: center;
+    padding: 2em 0;
+}
+
+.pinboard div {
+    position: absolute;
+    display: inline-block;
+}
+
+.pinboard a {
+    border: none;
+}
+
+.pinboard-closed {
+    height: auto !important;
+}
+
+.pinboard-closed pos {
+    display: none;
+}
+
+.pinboard-toggle {
+    opacity: 0.8;
+    position: absolute;
+    left: 0;
+    top: 1em;
+    z-index: 99998;
+    border-radius: 0 5px 5px 0;
+    margin: 0;
+}
+
+.pinboard-toggle:before {
+    content: "Close ";
+    color: #CCC;
+}
+
+.pinboard-closed .pinboard-toggle:before {
+    content: "Open ";
+}
+
+.polaroid {
+    background: #FFF;
+    padding: 0.7em 0.7em 2.1em 0.7em;
+    -webkit-box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
+    border-radius: 2px;
+}
+
+.polaroid img {
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    width: 15em;
+}
+
+.polaroid:after {
+    content: '';
+    position: absolute;
+    top: 0.5em;
+    left: 50%;
+    margin-left: -15px;
+    width: 1.3em;
+    height: 1.3em;
+    background: #BF3;
+    box-shadow: inset 1px 1px 10px rgba(0,0,0,0.5);
+    border-radius: 1em;
+}
+
+.polaroid.slider img {
+    display: none;
+}
+
+.note {
+    width: 14em;
+    height: 14em;
+    background: #FFE57A;
+    border-radius: 1px 1px 3px 3px;
+    padding: 30px 20px 20px 20px;
+    list-style: none;
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.3);
+}
+
+.note h3 {
+    font-family: 'Waiting for the Sunrise', cursive !important;
+    color: #217;
+    font-size: 2em;
+    line-height: 1;
+    padding: 0;
+}
+
+.note p {
+    padding: 20px 0 0 0;
+    color: #217;
+    font-weight: bold;
+    font-family: 'Waiting for the Sunrise', cursive !important;
+}
+
+.note span {
+    position: absolute;
+    bottom: 15px;
+    right: 25px;
+    color: #217;
+    font-weight: bold;
+    font-family: 'Waiting for the Sunrise', cursive !important;
+}
+
+.tip-this {
+    position: relative;
+}
+
+.tip-this+span {
+    background: rgba(0,0,0,0.9);
+    border-radius: 4px;
+    position: absolute;
+    display: inline-block;
+    top: 10px;
+    padding: 10px 20px;
+    min-width: 170px;
+    margin-left: -9999px;
+    color: #CCC;
+}
+
+.tip-this:hover+span {
+    margin-left: 0px
+}
+
+footer .info {
+    text-align: left;
+    overflow: hidden;
+    font-size: 0.8em;
+    color: #CCC;
+    padding: 1em;
+}
+
+footer .info p {
+    width: 50%;
+    background: #FFF;
+}
+
+select {
+    font-size: 2em;
+    border: 1px solid #00AB3F;
+    border-radius: 3px;
+    width: 7em;
+    outline: 0;
+    box-shadow: 0 0 3px #00AB3F;
+    padding: 8px;
+}
+
+option {
+    padding-right: 0.2em;
+    outline: 0;
+}
+
+pos {
+    display: inline-block;
+    position: relative;
+    width: 32%;
+    min-width: 320px;
+    height: 350px;
+    margin: 2em 0;
+}
+
+.pinboard pos {
+    text-align: left;
+}
+
+awesome {
+    display: inline-block;
+    -webkit-transition: all 0.5s ease;
+    color: #666;
+    cursor: none;
+}
+
+awesome:hover {
+    -webkit-transform: scale(3) rotate(-5deg);
+    text-shadow: 0 0 5px #FFF, 0 0 3px #FFF, 0 0 3px #FFF;
+    color: #00AB3F;
+}
+
+
+#board {
+    display: none;
+}
+
+.board-placeholder {
+    position: relative;
+    cursor: default;
+    height: auto;
+    overflow: hidden;
+    background: none;
+    padding: 0;
+    text-align: center;
+}
+
+.board-placeholder > img {
+    width: 100%;
+    min-width: 480px;
+    margin: 0;
+    display: block;
+}
+
+.title {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    font-size: 4em;
+    text-align: center;
+    top: 33%;
+    background: rgba(255,255,255,0.9);
+    color: #afd03c;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.title span {
+    color: #009338;
+}
+
+.title img {
+    height: 1.2em;
+    position: relative;
+    top: 0.1em;
+    vertical-align: sub;
+}
+
+.greeting {
+    position: fixed;
+    background: rgba(255,255,255,0.9);
+    margin: 10px 0;
+    padding: 0 20px 0 0;
+    border-radius: 0 3px 3px 0;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    left: -600px;
+    max-width: 550px;
+    -webkit-transition: all 1s ease;
+    z-index: 99999;
+}
+
+.order {
+    margin: 0;
+    padding: 1em;
+}
+
+@media screen and (max-width:1025px) {
+    body {
+        font-size: 18px;
+    }
+
+    p,input {
+        letter-spacing: 0.05em;
+    }
+
+    .tfw {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:641px) {
+    .mfw {
+        width: 100% !important;
+        display: block;
+    }
+
+    .title {
+        font-size: 2.2em !important;
+    }
+
+    p,input {
+        letter-spacing: 0.1em;
+    }
+}
+
+@media screen and (max-width:481px) {
+    html {
+        overflow: hidden;
+        min-width: 320px;
+        max-width: 100%;
+    }
+
+    body {
+        font-size: 13px;
+    }
+
+    .pinboard {
+        font-size: 18px;
+    }
+	@    -ms-viewport {
+        width: 320px;
+    }
+}
+
+.order-head {
+    padding: 20%;
+    background: url(../img/repo/order.jpg) center no-repeat;
+    background-size: 100% auto;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.3);
+}
+
+domain:before {
+    content: '@';
+    color: inherit;
+}
+
+.tagline {
+    font-size: 1em;
+}
+
+.note div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: #000;
+    margin: 0.2em;
+} 
+
+.sandwich, .salad, .bar {
+    width: 90%;
+    padding: 0;
+    margin: 15px auto;
+    list-style: none;
+}
+
+.sandwich li, .bar li, .salad li {
+    width: 95%;
+    margin: 0px auto 0 auto;
+    height: 0;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-transition: margin 0.2s ease-in;
+    background-size: 100% auto;
+    background-image: url(http://thecolour-green.com/img/ingredients.png);
+    cursor: pointer;
+    -moz-user-select: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+.sandwich:hover li, .salad:hover li {
+    -webkit-transition: margin 0.2s ease;
+}
+
+.sandwich li:after, .sandwich li:before,.salad li:after, .salad li:before, .bar li:after, .bar li:before {
+    content: ' ';
+    width: 100%;
+    height: 6px;
+    position: absolute;
+    left: 0px;
+    z-index: 2;
+    top: -5px;
+}
+
+.sandwich li:before, .salad li:before, .bar li:before {
+    top: auto;
+    bottom: -5px;
+}
+
+.sandwich img, .salad img, .bar img {
+    width: 100%;
+    display: block;
+}
+
+.helper {
+    width: 400px !important;
+}
+
+.bar li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.salad {
+    min-height: 20px;
+    padding: 5px;
+    position: relative;
+}
+
+.out-of-stock {
+    opacity: 0.5;
+}
+
+.out-of-stock:after {
+    position: absolute;
+    content: 'out of stock' !important;
+    top: 50% !important;
+    left: 50% !important;
+    width: 120px !important;
+    margin-top: -0.7em !important;
+    margin-left: -50px !important;
+    padding: 1px 10px !important;
+    font-size: 0.6em !important;
+    color: #000 !important;
+    font-weight: bold;
+    text-align: center !important;
+    background: rgba(255,255,255,0.8) !important;
+    border-radius: 3px !important;
+    height: auto !important;
+}
+
+.salad.large li {
+    width: 100%;
+}
+
+.salad.small li {
+    width: 80%;
+}
+
+.salad.large:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 101%;
+    border: #555 solid;
+    border-width: 0 3px 3px 3px;
+    border-radius: 2px 2px 5px 5px;
+    max-height: 70px;
+    height: 100%;
+    padding: 5px;
+    left: 50%;
+    margin-left: -50.5%;
+    z-index: 0;
+}
+
+.salad.small:after {
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 81%;
+    border: #555 solid;
+    border-width: 0 3px 3px 3px;
+    border-radius: 2px 2px 5px 5px;
+    max-height: 50px;
+    height: 100%;
+    padding: 5px;
+    left: 50%;
+    margin-left: -40.5%;
+    z-index: 0;
+}
+
+.sandwich:before,.sandwich:after {
+    content: '';
+    display: block;
+    width: 100%;
+    padding: 2.5%;
+    background: #FC9;
+    border-radius: 10px 10px 0 0;
+}
+
+.sandwich:after {
+    border-radius: 0 0 10px 10px;
+}
+
+.preview[option="toasted"] {
+    background-image: url(http://thecolour-green.com/img/bg6.png);
+}
+
+.preview[option="still"] {
+    background-image: url(http://thecolour-green.com/img/bg6.png);
+}
+
+.preview[option]:after {
+    content: attr(option);
+    text-transform: lowercase;
+    position: absolute;
+    top: -0.5em;
+    right: -0.3em;
+    background: #00AB3F;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 0 0.3em 0.1em 0.3em;
+    border-radius: 3px;
+}
+
+/*********************************************************************************************************************************/
+/*********************************************************************************************************************************/
+/*********************************************************************************************************************************/
+
+.tomato {
+    padding: 3.8%;
+    background-position: 0% 1.00%;
+}
+
+.lettuce {
+    padding: 6%;
+    background-position: 0% 2.00%;
+}
+
+.grilled-chicken {
+    padding: 5%;
+    background-position: 0% 3.03%;
+}
+
+.thousand-island {
+    padding: 1%;
+    background: #F99;
+}
+
+.mayonnaise {
+    padding: 1%;
+    background: #FF9;
+}
+
+.smoked-salmon {
+    padding: 3%;
+    background-position: 0% 49.12%;
+}
+
+.rocket {
+    padding: 6%;
+    background-position: 0% 4.02%;
+}
+
+.cucumber {
+    padding: 6.0%;
+    background-position: 0% 5.03%;
+}
+
+.green-pepper {
+    padding: 6.1%;
+    background-position: 0% 6.04%;
+}
+
+.yellow-pepper {
+    padding: 6.1%;
+    background-position: 0% 7.04%;
+}
+
+.red-pepper {
+    padding: 6.1%;
+    background-position: 0% 8.04%;
+}
+
+.onion {
+    padding: 5.1%;
+    background-position: 0% 9.05%;
+}
+
+.jalapenos {
+    padding: 3.4%;
+    background-position: 0% 10.03%;
+}
+
+.peas {
+    padding: 3.9%;
+    background-position: 0% 11.03%;
+}
+
+.eggs {
+    padding: 4.8%;
+    background-position: 0% 40.18%;
+}
+
+.mango {
+    padding: 4.9%;
+    background-position: 0% 29.12%;
+}
+
+.avocado {
+    padding: 4.4%;
+    background-position: 0% 20.08%;
+}
+
+.fresh-mushrooms {
+    padding: 5.9%;
+    background-position: 0% 12.04%;
+}
+
+.broccoli {
+    padding: 6.6%;
+    background-position: 0% 14.1%;
+}
+
+.beets {
+    padding: 4.8%;
+    background-position: 0% 13.05%;
+}
+
+.red-cabbage {
+    padding: 6.4%;
+    background-position: 0% 15.07%;
+}
+
+.white-cabbage {
+    padding: 6.7%;
+    background-position: 0% 16.09%;
+}
+
+.sweet-corn {
+    padding: 3.5%;
+    background-position: 0% 17.05%;
+}
+
+.red-grapes {
+    padding: 3.6%;
+    background-position: 0% 26.09%;
+}
+
+.pineapple {
+    padding: 4.6%;
+    background-position: 0% 22.12%;
+}
+
+.green-apples {
+    padding: 5%;
+    background-position: 0% 23.14%;
+}
+
+.yellow-apples {
+    padding: 5%;
+    background-position: 0% 25.14%;
+}
+
+.red-apples {
+    padding: 5%;
+    background-position: 0% 24.14%;
+}
+
+.red-beans {
+    padding: 3%;
+    background-position: 0% 19.05%;
+}
+
+.artichokes {
+    padding: 4.4%;
+    background-position: 0% 18.08%;
+}
+
+.kiwi {
+    padding: 4.4%;
+    background-position: 0% 27.09%;
+}
+
+.tuna {
+    padding: 3.4%;
+    background-position: 0% 46.13%;
+}
+
+.spicy-tuna {
+    padding: 3.4%;
+    background-position: 0% 47.13%;
+}
+
+.grilled-turkey {
+    padding: 4.5%;
+    background-position: 0% 48.23%;
+}
+
+.roast-beef {
+    padding: 3.5%;
+    background-position: 0% 50.16%;
+}
+
+.pickled-cucumbers {
+    padding: 4.5%;
+    background-position: 0% 37.15%;
+}
+
+.pickled-lemons {
+    padding: 4.5%;
+    background-position: 0% 38.18%;
+}
+
+.feta-cheese {
+    padding: 4.5%;
+    background-position: 0% 41.18%;
+}
+
+.canned-mushrooms {
+    padding: 5.7%;
+    background-position: 0% 42.21%;
+}
+
+.almonds {
+    padding: 3.2%;
+    background-position: 0% 32.08%;
+}
+
+.walnuts {
+    padding: 3.5%;
+    background-position: 0% 34.13%;
+}
+
+.pistachios {
+    padding: 3%;
+    background-position: 0% 33.1%;
+}
+
+.sweet-potato {
+    padding: 4.4%;
+    background-position: 0% 30.12%;
+}
+
+.raspberries {
+    padding: 3.9%;
+    background-position: 0% 28.07%;
+}
+
+.beef-bacon {
+    padding: 3.5%;
+    background-position: 0% 51.16%;
+}
+
+.capers {
+    padding: 1.8%;
+    background-position: 0% 36.04%;
+}
+
+.crab-sticks {
+    padding: 5%;
+    background-position: 0% 52.21%;
+}
+
+.fusili-pasta {
+    padding: 8.7%;
+    background-position: 0% 58.46%;
+}
+
+.farfalle-pasta {
+    padding: 8.3%;
+    background-position: 0% 59.45%;
+}
+
+.shrimps {
+    padding: 6%;
+    background-position: 0% 53.28%;
+}
+
+.salami {
+    padding: 3%;
+    background-position: 0% 54.15%;
+}
+
+.pastrami {
+    padding: 2.8%;
+    background-position: 0% 55.12%;
+}
+
+.smoked-turkey {
+    padding: 2.8%;
+    background-position: 0% 56.14%;
+}
+
+.black-olives {
+    padding: 3.8%;
+    background-position: 0% 43.14%;
+}
+
+.green-olives {
+    padding: 3.8%;
+    background-position: 0% 44.16%;
+}
+
+/*********************************************************************************************************************************/
+/*********************************************************************************************************************************/
+/*********************************************************************************************************************************/
+
+.mozzarella {
+    padding: 1%;
+    background-color: #FFD;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.emmental {
+    padding: 1%;
+    background-color: #F1C25A;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.brie {
+    padding: 1%;
+    background-color: #EADDA6;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.camembert {
+    padding: 1%;
+    background-color: #F2E5B8;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.red-cheddar {
+    padding: 1%;
+    background-color: #E49425;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.old-amsterdam {
+    padding: 1%;
+    background-color: #E8B655;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.blue-cheese {
+    padding: 1%;
+    background-color: #DCE0BD;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.cream-cheese {
+    padding: 0.8%;
+    background-color: #FFE;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.ceasar {
+    padding: 0.8%;
+    background-color: #FCF5E2;
+    border-radius: 35%;
+}
+
+.yogurt {
+    padding: 0.9%;
+    background-color: #FFF;
+    border-radius: 35%;
+}
+
+.thousand-island {
+    padding: 0.8%;
+    background-color: #EFC9A5;
+    border-radius: 35%;
+}
+
+.sweet-chili {
+    padding: 0.6%;
+    background-color: #F05209;
+    border-radius: 35%;
+}
+
+.pesto-mayo {
+    padding: 0.8%;
+    background-color: #B1D692;
+    border-radius: 35%;
+}
+
+.ketchup {
+    padding: 0.8%;
+    background-color: #BF0103;
+    border-radius: 35%;
+}
+
+.mayo {
+    padding: 0.8%;
+    background-color: #FFE;
+    border-radius: 35%;
+}
+
+.mustard {
+    padding: 0.8%;
+    background-color: #fc5;
+    border-radius: 35%;
+}
+
+.barbecue-sauce {
+    padding: 0.8%;
+    background-color: #7D3419;
+    border-radius: 35%;
+}
+
+.balsamic-vinegar {
+    padding: 0.6%;
+    background-color: rgba(150,100,100,0.5);
+    border-radius: 35%;
+}
+
+.white-vinegar {
+    padding: 0.6%;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 35%;
+}
+
+.olive-oil {
+    padding: 0.6%;
+    background-color: rgba(200,200,100,0.8);
+    border-radius: 35%;
+}
+
+.lemon-squeeze {
+    padding: 0.6%;
+    background-color: rgba(255,255,20,0.6);
+    border-radius: 35%;
+}
+
+.teriyaki {
+    padding: 0.6%;
+    background-color: #A7322A;
+    border-radius: 35%;
+}
+
+.soy-sauce {
+    padding: 0.6%;
+    background-color: #77322A;
+    border-radius: 35%;
+}
+
+.blue-cheese-dressing {
+    padding: 0.8%;
+    background-color: #E5E8E0;
+    border-radius: 35%;
+}
+
+.special-herbal-yogurt {
+    padding: 0.9%;
+    background-color: #EEFEEE;
+    border-radius: 35%;
+}
+
+.honey-mustard {
+    padding: 0.8%;
+    background-color: #FFED03;
+    border-radius: 35%;
+}
+
+.hot-sauce {
+    padding: 0.6%;
+    background-color: #F05209;
+    border-radius: 35%;
+}
+
+.spicy-mazola {
+    padding: 0.6%;
+    background-color: rgba(200,200,100,0.8);
+    border-radius: 35%;
+}
+
+.olive-paste {
+    padding: 0.6%;
+    background-color: #A98376;
+    border-radius: 35%;
+}
+
+.paprika {
+    padding: 0.6%;
+    background-color: rgba(200,200,100,0.8);
+    border-radius: 35%;
+}
+
+.cinnamon {
+    padding: 0.5%;
+    background-color: #AD4D11;
+    opacity: 0.5;
+}
+
+.cream {
+    padding: 0.8%;
+    background-color: #FFE;
+    border-radius: 35%;
+}
+
+.nutella {
+    padding: 0.6%;
+    background-color: rgba(200,200,100,0.8);
+    border-radius: 35%;
+}
+
+.pesto {
+    padding: 0.8%;
+    background-color: #AFEC78;
+    border-radius: 35%;
+}
+
+.black-caviar {
+    padding: 1%;
+    background-color: #202;
+    border-radius: 35%;
+}
+
+.red-caviar {
+    padding: 1%;
+    background-color: #c02;
+    border-radius: 35%;
+}
+
+.butter-spread {
+    padding: 0.6%;
+    background-color: #ffc;
+    border-radius: 35%;
+}
+
+.butter-spread {
+    padding: 0.6%;
+    background-color: #ffc;
+    border-radius: 35%;
+}
+
+.caramel-sauce {
+    padding: 0.8%;
+    background-color: #ED7D31;
+    border-radius: 35%;
+}
+
+.chocolate-sauce {
+    padding: 0.8%;
+    background-color: #8D4D11;
+    border-radius: 35%;
+}
+
+.coffee-powder {
+    padding: 0.5%;
+    background-color: #8D4D11;
+    opacity: 0.5;
+}
+
+.cranberry-jam {
+    padding: 1%;
+    background-color: #c05;
+    border-radius: 15%;
+    opacity: 0.8;
+}
+
+.fig-jam {
+    padding: 1%;
+    background-color: #632A0C;
+    border-radius: 15%;
+    opacity: 0.8;
+}
+
+.fresh-basil {
+    padding: 0.5%;
+    background-color: #3c0;
+}
+
+.fresh-mint {
+    padding: 0.5%;
+    background-color: #3d5;
+}
+
+.halawa {
+    padding: 1.2%;
+    background-color: #feb;
+}
+
+.honey {
+    padding: 0.6%;
+    background-color: #fd0;
+    border-radius: 35%;
+    opacity: 0.8;
+}
+
+.orange-jam {
+    padding: 1%;
+    background-color: #fd0;
+    border-radius: 15%;
+    opacity: 0.8;
+}
+
+.parmesan-oregano {
+    padding: 0.8%;
+    background-color: #fd8;
+    border-radius: 2px;
+    box-shadow: inset 0 -1px 3px rgba(0,0,0,0.1);
+}
+
+.peanut-butter {
+    padding: 1%;
+    background-color: #feb;
+    border-radius: 35%;
+}
+
+.raspberry-jam {
+    padding: 1%;
+    background-color: #a02;
+    border-radius: 15%;
+    opacity: 0.8;
+}
+
+.strawberry-jam {
+    padding: 1%;
+    background-color: #d03;
+    border-radius: 15%;
+    opacity: 0.8;
+}
+
+.thyme-zaatar {
+    padding: 0.5%;
+    background-color: #390;
+    opacity: 0.5;
+}
+
+/*********************************************************************************************************************************/
+/*********************************************************************************************************************************/
+/*********************************************************************************************************************************/
+
+.white-panini-with-olives:after,.white-panini-with-olives:before {
+}
+
+.green-ciabatta:before,.green-ciabatta:after {
+    background: -moz-linear-gradient(top,  rgba(206,202,86,0.8) 0%, rgba(206,202,86,0.8) 1%, rgba(237,226,142,0.8) 99%);
+ /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(206,202,86,0.8)), color-stop(1%,rgba(206,202,86,0.8)), color-stop(99%,rgba(237,226,142,0.8)));
+ /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(206,202,86,0.8) 0%,rgba(206,202,86,0.8) 1%,rgba(237,226,142,0.8) 99%);
+ /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(206,202,86,0.8) 0%,rgba(206,202,86,0.8) 1%,rgba(237,226,142,0.8) 99%);
+ /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(206,202,86,0.8) 0%,rgba(206,202,86,0.8) 1%,rgba(237,226,142,0.8) 99%);
+ /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(206,202,86,0.8) 0%,rgba(206,202,86,0.8) 1%,rgba(237,226,142,0.8) 99%);
+ /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccceca56', endColorstr='#ccede28e',GradientType=0 );
+ /* IE6-9 */
+}
+
+.multi-cereal-brown-panini:before,.multi-cereal-brown-panini:after {
+    background: -moz-linear-gradient(top,  rgba(160,109,32,0.78) 0%, rgba(160,109,32,0.78) 1%, rgba(175,140,42,0.79) 100%);
+ /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(160,109,32,0.78)), color-stop(1%,rgba(160,109,32,0.78)), color-stop(100%,rgba(175,140,42,0.79)));
+ /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7a06d20', endColorstr='#c9af8c2a',GradientType=0 );
+ /* IE6-9 */
+}
+
+.green-tortilla-wrap:before,.green-tortilla-wrap:after {
+    background: #be8;
+    padding: 1%;
+}
+
+.red-tortilla-wrap:before,.red-tortilla-wrap:after {
+    background: #fa8;
+    padding: 1%;
+}
+
+.brown-tortilla-wrap:before,.brown-tortilla-wrap:after {
+    background: #c95;
+    padding: 1%;
+}
+
+.the-real-french-baguette:before,.the-real-french-baguette:after {
+    padding: 3.2%;
+    box-shadow: inset 0 0 20px rgba(0,0,0,0.2);
+}
+
+.white-toast:before,.white-toast:after {
+    border-radius: 3px;
+    width: 80%;
+    background: #FCDDA3;
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+}
+
+.brown-toast:before,.brown-toast:after {
+    border-radius: 3px;
+    width: 80%;
+    background: -moz-linear-gradient(top,  rgba(160,109,32,0.78) 0%, rgba(160,109,32,0.78) 1%, rgba(175,140,42,0.79) 100%);
+ /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(160,109,32,0.78)), color-stop(1%,rgba(160,109,32,0.78)), color-stop(100%,rgba(175,140,42,0.79)));
+ /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* IE10+ */
+    background: linear-gradient(to bottom,  rgba(160,109,32,0.78) 0%,rgba(160,109,32,0.78) 1%,rgba(175,140,42,0.79) 100%);
+ /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7a06d20', endColorstr='#c9af8c2a',GradientType=0 );
+ /* IE6-9 */
+    position: relative;
+    left: 50%;
+    margin-left: -40%;
+} 
+
+.accordion {
+    -webkit-transition: height 0.1s linear;
+}
+
+.accordion h3, .accordion div {
+    margin: 0;
+    background: #00AB3F;
+    border: 0;
+    border-radius: 2px;
+    color: #FFF;
+    -webkit-transition: all 0.5s ease;
+}
+
+.accordion h3 {
+    padding-top: 0.2em !important;
+    padding-bottom: 0.2em !important;
+}
+
+.accordion div {
+    background: #BF3;
+    padding: 10px !important;
+    min-height: 300px;
+    overflow: scroll;
+    overflow-x: hidden !important;
+}
+
+.accordion h3:hover {
+    background: #0C6;
+}
+
+.accordion h3:before {
+    position: absolute;
+    left: 0.9em;
+    top: 0.7em;
+    content: '';
+    border-top: 0.3em solid #FFF;
+    border-left: 0.3em solid transparent;
+    border-right: 0.3em solid transparent;
+}
+
+.ui-accordion-header-active {
+    color: #BF3 !important;
+}
+
+.accordion {
+    width: 47%;
+    float: right;
+}
+
+.kitchen-wrapper {
+    text-align: center;
+    padding: 0;
+}
+
+.kitchen {
+    overflow: hidden;
+    position: relative;
+    min-height: 300px;
+    width: 100%;
+    display: inline-block;
+    max-width: 800px;
+    text-align: left;
+}
+
+.builder {
+    float: left;
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    margin-top: 20px;
+    height: 100%;
+    padding: 0;
+}
+
+.builder:hover li {
+    margin: 10px auto;
+}
+
+.builder .object {
+    position: absolute;
+    bottom: 2em;
+    left: 50%;
+    margin-left: -45%
+}
+
+.info {
+    padding: 0.5em !important;
+    padding-top: 0.5em !important;
+    padding-bottom: 0.5em !important;
+    text-align: right;
+}
+
+.info input {
+    width: 25%;
+    border-radius: 3px;
+}
+
+.info:before {
+    display: none;
+}
+
+.info span {
+    color: #FFF !important;
+    font-size: 0.9em;
+    display: inline-block;
+    max-width: 20% !important;
+    font-weight: 400;
+}
+
+.info div {
+    margin: 0;
+    padding: 0;
+    background: none;
+    display: inline-block;
+    width: 5em;
+}
+
+.info input {
+    margin: 0;
+}
+
+.spinner, .time-spinner {
+    width: 50%;
+    margin: 10px ! important;
+    background: #FFF;
+}
+
+.time-spinner {
+    width: 100px !important;
+    position: relative;
+}
+
+.ui-spinner-button {
+    width: 2em;
+    background: #00AB3F !important;
+    cursor: pointer;
+}
+
+.ui-spinner-button:hover {
+    background: #0C6 !important;
+    border-color: #0C6;
+}
+
+.ui-spinner-up:after,.ui-spinner-down:after {
+    content: '';
+    position: absolute;
+    top: 0.5em;
+    left: 1em;
+    margin-left: -10px;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 12px solid #FFF;
+}
+
+.ui-spinner-down:after {
+    top: auto;
+    bottom: 0.5em;
+    border-bottom: 0;
+    border-top: 12px solid #FFF;
+}
+
+.ui-spinner {
+    padding: 0;
+    margin: 0;
+}
+
+.preview .ui-spinner {
+    width: 50%;
+}
+
+.preview:hover .ui-spinner {
+    display: inline-block;
+}
+
+.preview span {
+    width: 46%;
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.summary {
+    list-style: lower-roman outside;
+    margin: 0 0 20px 40px;
+}
+
+.summary li {
+    color: #999;
+}
+
+.summary span {
+    float: right;
+    margin: 0 10px;
+}
+
+.ui-state-highlight {
+    padding: 10px;
+}
+
+.notify-box {
+    position: fixed;
+    top: 0;
+    padding: 0.5em;
+    text-align: center;
+    font-size: 2em;
+    width: 90%;
+    color: #00AB3F;
+    margin: 0.5em 5%;
+    overflow: hidden;
+    text-shadow: 0 -1px 0px rgba(0,0,0,0.5),
+				 0 1px 0px rgba(255,255,255,0.5),				 
+				 0 1px 50px rgba(255,255,255,1);
+    box-shadow: inset 0 0 1000px 0,
+				inset 0 -1px 2px 0 rgba(0,0,0,0.7),
+				0 2px 5px 0 rgba(0,0,0,0.5);
+    border-radius: 5px;
+    background: rgba(255,255,255,0.9);
+    z-index: 10000;
+    -webkit-transition: opacity 0.5s ease;
+    display: none;
+    opacity: 0;
+}
+
+.kitchen {
+    display: none;
+}
+
+.builder .object.sandwich:empty:before {
+    margin-bottom: 40px;
+}
+
+.builder .object.salad:empty {
+    min-height: 50px;
+}
+
+.delete-layer {
+    position: absolute;
+    padding: 3px 5px;
+    background: rgba(0,0,0,0.9);
+    border-radius: 3px;
+    top: 50%;
+    margin-top: -13px;
+    left: -25px;
+    font-size: 20px;
+    line-height: 20px;
+    color: #F55;
+    opacity: 0;
+    -webkit-transition: opacity 0.15s linear;
+}
+
+.delete-layer:after {
+    content: '';
+    position: absolute;
+    border-left: 5px solid rgba(0,0,0,0.9);
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    right: -5px;
+    top: 8px;
+}
+
+.delete-layer:hover {
+    color: #F66;
+}
+
+li:hover .delete-layer {
+    opacity: 1;
+}
+
+.accordion div select, .accordion div textarea {
+    margin-bottom: 5px;
+}
+
+@media screen and (max-width:641px) {
+    .builder {
+        position: static !important;
+        height: 300px !important;
+    }
+
+    .delete-layer {
+        left: 50%;
+        margin-left: -13px;
+    }
+
+    .delete-layer:after {
+        display: none;
+    }
+}
+
+.duplicate {
+    margin-bottom: 10px !important;
+}
+
+option[disabled="disabled"] {
+    color: #999;
+}
+
+.quantity {
+    position: absolute;
+    top: -0.3em;
+    right: -0.3em;
+    background: #00AB3F;
+    color: #FFF;
+    border-radius: 3px;
+    padding: 0.2em 0.4em 0.3em 0.4em;
+    font-size: 1.2em;
+}
+
+.summary_two {
+    list-style: lower-roman outside;
+    margin: 0 0 20px 40px;
+}
+
+.summary_two li {
+    color: #999;
+}
+
+.summary_two span {
+    float: right;
+    margin: 0 10px;
+}
+
+.json {
+    display: none;
+}
+
+.addButton {
+    display: none;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 0.3em;
+    box-shadow: 0 0 5px rgba(255,255,255,0.5);
+} 
+    </style>
+
+</head>
+
+<body background="salad.jpg">
+
+<div class="lgbg" id="objects">
+    <h3>Your salads bowl starts from here.</h3>
+    <ul class="preview-container objects">
+    	<button class="preview make-your-own bold" onclick="window.location.href = 'http://www.google.com'">
+        	Customize Your Salad Bowl
+        </button>        
+        <button class="preview make-your-own bold" onclick="window.location.href = 'http://www.google.com'">
+            Search for your own recipe
+        </button>
+
+                
+    </ul>
+</div>
+</body>
+
+</html>
