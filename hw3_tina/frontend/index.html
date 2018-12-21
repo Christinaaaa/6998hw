@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- css -->
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="lib/axios/dist/axios.standalone.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/hmac-sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/rollups/sha256.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/hmac.js"></script>
+<script type="text/javascript" src="lib/CryptoJS/components/enc-base64.js"></script>
+<script type="text/javascript" src="lib/url-template/url-template.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/sigV4Client.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/apiGatewayClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/simpleHttpClient.js"></script>
+<script type="text/javascript" src="lib/apiGatewayCore/utils.js"></script>
+<script type="text/javascript" src="apigClient.js"></script>
+<script type="text/javascript" src="js/photo.js"></script>
+
+
+<body>
+<div id='bodybox'>
+  <div id='chatborder'>
+  	<h2>Search here</h2>
+    <input type="text" name="chat" id="chatbox" placeholder="Hi there! Type here to search." onfocus="placeHolder()">
+    <h2> Upload new images</h2>
+    <input type="file" name="pic" accept="image/*" multiple><br><br>
+  	<button id="buttonid" class="button1">Upload</button>
+  </div>
+</div>
+<ul>
+</ul>
+<div id='images'>
+	<h3 id="msg"></h3>
+</div>
+
+</body>
+</html>
